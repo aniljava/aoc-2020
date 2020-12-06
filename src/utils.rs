@@ -1,4 +1,5 @@
 use std::fs::File;
+use std::fs;
 use std::io::{self, BufRead};
 use std::path::Path;
 pub fn file_to_lines(path: &str) -> Vec<String> {
@@ -13,4 +14,9 @@ pub fn file_to_lines(path: &str) -> Vec<String> {
         };
     }
     str_lines
+}
+
+pub fn file_to_string(path: &str) -> String {
+    let contents = fs::read_to_string(path).unwrap();
+    contents
 }
